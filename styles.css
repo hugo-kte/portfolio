@@ -106,11 +106,12 @@ a:hover {
     margin: 0 auto;
 }
 
-.about, .projects, .contact {
+.about, .projects, .contact, .projectn {
     padding: 40px 0; /* Réduction des espacements */
 }
 
-.project, .contact form {
+
+.project, .contact form, .projectn {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -118,7 +119,7 @@ a:hover {
 }
 
 /* Espacement entre projets */
-.project {
+.project, .projectn{
     margin-bottom: 20px; /* Réduction de l'espacement */
     display: block;
     text-decoration: none;
