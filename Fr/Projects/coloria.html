@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLORIA - Kothe Hugo</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../projects.html">Projets</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <!-- Language switch button -->
+                <li>
+                    <a href="../../En/Projects/coloria.html" title="Passer à la version anglaise">
+                        <img src="../../assets/flag_en.png" alt="English" style="width:24px; height:auto;">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="project-title">COLORIA</h1>
+        <a class="git-link" href="https://github.com/hugo-kte/COLORIA">Voir le projet sur GitHub</a>
+        <section id="pdf-viewer" class="pdf-viewer">
+            <!-- Le contenu du PDF sera affiché ici -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Kothe Hugo. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        const url = '../documents/coloria.pdf'; // Chemin vers votre PDF
+
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        const pdfContainer = document.getElementById('pdf-viewer');
+
+        // Charger et afficher le PDF
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    pdfContainer.appendChild(canvas);
+
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
+                    page.render(renderContext);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

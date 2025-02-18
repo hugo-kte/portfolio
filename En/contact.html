@@ -1,0 +1,103 @@
+<!-- contact.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Contact - Kothe Hugo</title>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="../styles.css">
+     <!-- Favicons -->
+     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+     <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+     <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+     <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+     <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+     <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+     <link rel="manifest" href="/favicon/manifest.json">
+     <meta name="msapplication-TileColor" content="#ffffff">
+     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+     <meta name="theme-color" content="#ffffff">
+
+ </head>
+ <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Language switch button -->
+                <li>
+                    <a href="../Fr/contact.html" title="Passer à la version française">
+                        <img src="../assets/flag_fr.png" alt="Français" style="width:24px; height:auto;">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+     <main>
+        <div class="container">
+            <h1>Contact</h1>
+        </div>
+         <section class="contact">
+             <div class="container">
+                 <h2>My Contact Information</h2>
+                 <p>Address: 2 rue Arthur Rimbaud, 93160 Noisy-le-Grand</p>
+                 <p>Email: <a href="mailto:hugo.kothe@edu.esiee.fr">hugo.kothe@edu.esiee.fr</a></p>
+                 <p>Telephone: <a href="tel:0618884513">0618884513</a></p>
+                 <p>GitHub: <a href="https://github.com/hugo-kte" target="_blank">hugo-kte</a></p>
+                 <p>LinkedIn: <a href="https://www.linkedin.com/in/hugo-kothe-216a26211" target="_blank">Hugo Kothe</a></p>
+                 <p>Root-me: <a href="https://www.root-me.org/hugo-kte" target="_blank">hugo.kte</a></p>
+             </div>
+             <section id="pdf-viewer" class="pdf-viewer">
+                <!-- The PDF content will be displayed here -->
+            </section>
+         </section>
+     </main>
+
+     <footer>
+         <div class="container">
+             <p>&copy; 2025 Kothe Hugo. All rights reserved.</p>
+         </div>
+     </footer>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+        const url = 'documents/CV-En.pdf'; // Path to your PDF
+
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        const pdfContainer = document.getElementById('pdf-viewer');
+
+        // Load and display the PDF
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    pdfContainer.appendChild(canvas);
+
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
+                    page.render(renderContext);
+                });
+            }
+        });
+    </script>
+ </body>
+ </html>
