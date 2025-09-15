@@ -289,6 +289,18 @@ footer {
     footer {
         font-size: 0.8rem;
     }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .grid .project,
+    .grid .projectn {
+        box-sizing: border-box;
+        width: calc(100% - 24px);
+        margin: 0 12px 20px;
+    }
 }
 
 /* Ajustements pour les très grands écrans */
@@ -301,8 +313,8 @@ footer {
 /* Flexbox grid for projects */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Réduction de la largeur minimale */
-    gap: 15px; /* Réduction des espaces entre les items */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Largeur minimale légèrement augmentée pour les écrans plus larges */
+    gap: 20px; /* Espacement accru pour aérer les cartes */
 }
 
 /* Ensure images and videos are fluid */
