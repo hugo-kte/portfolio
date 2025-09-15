@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,12 +30,12 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../projects.html">Projets</a></li>
+                <li><a href="../projects.html">Projects</a></li>
                 <li><a href="../contact.html">Contact</a></li>
                 <!-- Language switch button -->
                 <li>
-                    <a href="../../Fr/Projects/coloria.html" title="Passer à la version française">
-                        <img src="../../assets/flag_fr.png" alt="Français" style="width:24px; height:auto;">
+                    <a href="../../Fr/Projects/coloria.html" title="Switch to the French version">
+                        <img src="../../assets/flag_fr.png" alt="French" style="width:24px; height:auto;">
                     </a>
                 </li>
             </ul>
@@ -44,28 +44,28 @@
 
     <main>
         <h1 class="project-title">COLORIA</h1>
-        <a class="git-link" href="https://github.com/hugo-kte/COLORIA">Voir le projet sur GitHub</a>
+        <a class="git-link" href="https://github.com/hugo-kte/COLORIA">View the project on GitHub</a>
         <section id="pdf-viewer" class="pdf-viewer">
-            <!-- Le contenu du PDF sera affiché ici -->
+            <!-- The PDF content will be displayed here -->
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Kothe Hugo. Tous droits réservés.</p>
+            <p>&copy; 2025 Kothe Hugo. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script>
-        const url = '../documents/coloria.pdf'; // Chemin vers votre PDF
+        const url = '../documents/coloria.pdf'; // Path to your PDF
 
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
         const pdfContainer = document.getElementById('pdf-viewer');
 
-        // Charger et afficher le PDF
+        // Load and display the PDF
         pdfjsLib.getDocument(url).promise.then(pdf => {
             for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
                 pdf.getPage(pageNum).then(page => {
