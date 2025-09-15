@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">COLORIA project illustration</title>
+  <desc id="desc">Abstract gradient background with paint palette icon</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a7bd5"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1e3c72" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="600" height="360" fill="url(#grad)" rx="28"/>
+  <g fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="3">
+    <path d="M60 120c80-60 200-60 280 0"/>
+    <path d="M260 260c80 60 200 60 280 0"/>
+  </g>
+  <g transform="translate(180 90)" filter="url(#shadow)">
+    <path d="M120 180c66 0 120-54 120-120S186 0 120 0 0 54 0 120c0 46 42 60 60 60 12 0 18-6 30-6s18 6 30 6z" fill="#fff"/>
+    <circle cx="60" cy="80" r="16" fill="#1e90ff"/>
+    <circle cx="110" cy="46" r="14" fill="#ff8a00"/>
+    <circle cx="160" cy="92" r="16" fill="#ffd200"/>
+    <circle cx="118" cy="140" r="22" fill="#6c63ff"/>
+  </g>
+  <text x="300" y="320" fill="#ffffff" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="48" font-weight="600" text-anchor="middle" letter-spacing="4">COLORIA</text>
+</svg>

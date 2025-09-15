@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="title desc">
+  <title id="title">Facial recognition project illustration</title>
+  <desc id="desc">Stylised face outline with scanning grid</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2027"/>
+      <stop offset="50%" stop-color="#203a43"/>
+      <stop offset="100%" stop-color="#2c5364"/>
+    </linearGradient>
+    <linearGradient id="scan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#76b2fe" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#b69efe" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="600" height="360" fill="url(#bg)" rx="28"/>
+  <g stroke="rgba(255,255,255,0.15)" stroke-width="2">
+    <path d="M120 60h360"/>
+    <path d="M120 120h360"/>
+    <path d="M120 180h360"/>
+    <path d="M120 240h360"/>
+    <path d="M120 300h360"/>
+  </g>
+  <rect x="150" y="40" width="300" height="280" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="6" rx="20"/>
+  <g transform="translate(220 90)" filter="url(#shadow)">
+    <path d="M80 20c-44 0-80 36-80 80v40c0 44 36 80 80 80s80-36 80-80v-40c0-44-36-80-80-80z" fill="none" stroke="#76b2fe" stroke-width="10"/>
+    <path d="M80 60c-24 0-44 20-44 44v12c0 24 20 44 44 44s44-20 44-44v-12c0-24-20-44-44-44z" fill="none" stroke="#b69efe" stroke-width="6"/>
+    <circle cx="58" cy="102" r="10" fill="#76b2fe"/>
+    <circle cx="102" cy="102" r="10" fill="#76b2fe"/>
+    <path d="M58 140c8 10 24 10 32 0" stroke="#76b2fe" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </g>
+  <rect x="150" y="160" width="300" height="80" fill="url(#scan)" opacity="0.75"/>
+  <text x="300" y="330" fill="#ffffff" font-family="'Poppins', 'Segoe UI', sans-serif" font-size="42" font-weight="600" text-anchor="middle" letter-spacing="5">FACIAL ID</text>
+</svg>
